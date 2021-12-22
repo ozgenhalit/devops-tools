@@ -43,14 +43,14 @@ terraform {
 resource "aws_instance" "tf-ec2" {
   ami           = "ami-0ed9277fb7eb570c9"
   instance_type = "t2.micro"
-  key_name      = "oliver"    # write your pem file without .pem extension>
+  key_name      = "stevie"    # write your pem file without .pem extension>
   tags = {
     "Name" = "tf-ec2"
   }
 }
 
 resource "aws_s3_bucket" "tf-s3" {
-  bucket = "oliver-tf-test-bucket-addwhateveryouwant"
+  bucket = "stevie-tf-test-bucket-addwhateveryouwant"
   acl    = "private"
 }
 ```
@@ -230,8 +230,8 @@ resource "aws_instance" "tf-ec2" {
 }
 
 resource "aws_s3_bucket" "tf-s3" {
-  bucket = "oliver-tf-bucket-addwhateveryouwant-new"
-  #bucket = "oliver-tf-bucket-addwhateveryouwant"
+  bucket = "stevie-tf-bucket-addwhateveryouwant-new"
+  #bucket = "stevie-tf-bucket-addwhateveryouwant"
   acl    = "private"
 }
 ```
@@ -306,7 +306,7 @@ terraform {
 }
 
 variable "ec2_name" {
-  default = "oliver-ec2"
+  default = "stevie-ec2"
 }
 
 variable "ec2_type" {
@@ -327,7 +327,7 @@ resource "aws_instance" "tf-ec2" {
 }
 
 variable "s3_bucket_name" {
-  default = "oliver-s3-bucket-variable-addwhateveryouwant"
+  default = "stevie-s3-bucket-variable-addwhateveryouwant"
 }
 
 resource "aws_s3_bucket" "tf-s3" {
@@ -366,7 +366,7 @@ terraform apply
 
 ```tf
 variable "s3_bucket_name" {
-#   default     = "oliver-new-s3-bucket-addwhateveryouwant"
+#   default     = "stevie-new-s3-bucket-addwhateveryouwant"
 }
 ```
 
@@ -387,7 +387,7 @@ terraform plan
 - You can define variables with `-var` command
 
 ```bash
-terraform plan -var="s3_bucket_name=oliver-new-s3-bucket-2"
+terraform plan -var="s3_bucket_name=stevie-new-s3-bucket-2"
 ```
 
 #### environment variables
@@ -397,7 +397,7 @@ terraform plan -var="s3_bucket_name=oliver-new-s3-bucket-2"
 - You can also define variable with environment variables that begin with `TF_VAR_`.
 
 ```bash
-export TF_VAR_s3_bucket_name=oliver-env-varible-bucket
+export TF_VAR_s3_bucket_name=stevie-env-varible-bucket
 terraform plan
 ```
 
@@ -415,22 +415,22 @@ s3_bucket_name = "tfvars-bucket"
 terraform plan
 ```
 
-- Create a file name `oliver.tfvars`. Add the followings.
+- Create a file name `stevie.tfvars`. Add the followings.
 
 ```bash
-s3_bucket_name = "oliver-tfvar-bucket"
+s3_bucket_name = "stevie-tfvar-bucket"
 ```
 
 - Run the command below.
 
 ```bash
-terraform plan --var-file="oliver.tfvars"
+terraform plan --var-file="stevie.tfvars"
 ```
 
-- Create a file named `oliver.auto.tfvars`. Add the followings.
+- Create a file named `stevie.auto.tfvars`. Add the followings.
 
 ```bash
-s3_bucket_name = "oliver-auto-tfvar-bucket"
+s3_bucket_name = "stevie-auto-tfvar-bucket"
 ```
 
 ```bash
@@ -459,7 +459,7 @@ terraform apply
 
 ```bash
 locals {
-  mytag = "oliver-local-name"
+  mytag = "stevie-local-name"
 }
 
 resource "aws_instance" "tf-ec2" {
@@ -565,7 +565,7 @@ terraform plan
 
 ```bash
 variable "users" {
-  default = ["santino", "michael", "fredo"]
+  default = ["gollum", "sam", "frodo"]
 }
 ```
 
