@@ -81,7 +81,7 @@ terraform destroy
     s3-backend
        └── backend.tf
     terraform-aws
-       ├── oliver.tfvars
+       ├── stevie.tfvars
        ├── main.tf
        └── variables.tf
 
@@ -99,7 +99,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "tf-remote-state" {
-  bucket = "tf-remote-s3-bucket-oliver-changehere"
+  bucket = "tf-remote-s3-bucket-stevie-changehere"
   
   force_destroy = true
 
@@ -147,7 +147,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "tf-remote-s3-bucket-oliver-changehere"
+    bucket = "tf-remote-s3-bucket-stevie-changehere"
     key = "env/dev/tf-remote-backend.tfstate"
     region = "us-east-1"
     dynamodb_table = "tf-s3-app-lock"
@@ -259,7 +259,7 @@ provider "aws" {
 resource "aws_instance" "instance" {
   ami = "ami-061ac2e015473fbe2"
   instance_type = "t2.micro"
-  key_name = "oliver"
+  key_name = "stevie"
   security_groups = ["tf-provisioner-sg"]
   tags = {
     Name = "terraform-instance-with-provisioner"
@@ -274,7 +274,7 @@ resource "aws_instance" "instance" {
     host = self.public_ip
     type = "ssh"
     user = "ec2-user"
-    private_key = file("~/oliver.pem")
+    private_key = file("~/stevie.pem") # or just send the pem file in your working directory --> private_key = file("stevie.pem")
   }
 
   provisioner "remote-exec" {
