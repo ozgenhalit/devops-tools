@@ -163,7 +163,7 @@ ls
 - Create a file in `stevie` container under `/stv` folder.
 
 ```bash
-cd stv && echo "This file is created in the container Clarus" > i-will-persist.txt
+cd stv && echo "This file is created in the container stevie" > i-will-persist.txt
 ```
 
 - List the files in `/stv` folder, and show content of `i-will-persist.txt`.
@@ -219,7 +219,7 @@ ls -l /stv2nd && cat /stv2nd/i-will-persist.txt
 - Create an another file in `stevie2nd` container under `/stv2nd` folder.
 
 ```bash
-cd stv2nd && echo "This is a file of the container Clarus2nd" > loadmore.txt
+cd stv2nd && echo "This is a file of the container stevie2nd" > loadmore.txt
 ```
 
 - List the files in `/stv2nd` folder, and show content of `loadmore.txt`.
@@ -477,7 +477,7 @@ root@4a1c7e5f394a:/usr/share/nginx/html# cat index.html
 
 ```bash
 mkdir webpage && cd webpage
-echo "<h1>Welcome to Clarusway</h1>" > index.html
+echo "<h1>Welcome to stevie</h1>" > index.html
 ```
 
 - Run the `nginx` container at the detached mod, name the container as `nginx-new`, attach the directory `/home/ec2-user/webpage` to `/usr/share/nginx/html` mount point in the container, and open <public-ip> on browser and show the web page.
@@ -500,7 +500,7 @@ root@a7e3d276a147:/# cd usr/share/nginx/html
 root@a7e3d276a147:/usr/share/nginx/html# ls 
 index.html
 root@a7e3d276a147:/usr/share/nginx/html# cat index.html 
-<h1>Welcome to Clarusway</h1>
+<h1>Welcome to stevie</h1>
 ```
 
 - `exit` the container.
